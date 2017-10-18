@@ -5,9 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RPSLS"
         mc:Ignorable="d"
-        Title="RPSLS" Height="350" Width="525" Background="#FFF9EFEF" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="RPSLS" Height="554" Width="517" Background="#FFF9EFEF" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" KeyDown="Window_KeyDown">
     <Grid>
-        <Image x:Name="image" Height="74" Margin="10,10,238,0" VerticalAlignment="Top" Source="Resources/logo.png"/>
-        <Button x:Name="instructionsButton" Content="Instructions" HorizontalAlignment="Left" Height="29" Margin="286,10,0,0" VerticalAlignment="Top" Width="204" Click="instructionsButton_Click"/>
+        <Image x:Name="logo" Height="79" Margin="0,18,231,0" VerticalAlignment="Top" Source="Resources/logo.png"/>
+        <Button x:Name="instructionsButton" Content="Instructions" HorizontalAlignment="Left" Height="66" Margin="280,18,0,0" VerticalAlignment="Top" Width="206" Click="instructionsButton_Click" FontFamily="Adobe Gothic Std B" FontSize="16"/>
+
+        <Image x:Name="image1r" HorizontalAlignment="Left" Height="78" Margin="10,102,0,0" VerticalAlignment="Top" Width="61" Source="Resources/rockr.png"/>
+        <Image x:Name="image2r" HorizontalAlignment="Left" Height="78" Margin="10,180,0,0" VerticalAlignment="Top" Width="61" Source="Resources/paperr.png"/>
+        <Image x:Name="image3r" HorizontalAlignment="Left" Height="76" Margin="10,258,0,0" VerticalAlignment="Top" Width="61" Source="Resources/scissorsr.png"/>
+        <Image x:Name="image4r" HorizontalAlignment="Left" Height="78" Margin="10,334,0,0" VerticalAlignment="Top" Width="61" Source="Resources/lizardr.png"/>
+        <Image x:Name="image5r" HorizontalAlignment="Left" Height="78" Margin="10,412,0,0" VerticalAlignment="Top" Width="61" Source="Resources/spockr.png"/>
+
+        <Image x:Name="image1l" HorizontalAlignment="Left" Height="78" Margin="425,102,0,0" VerticalAlignment="Top" Width="61" Source="Resources/rockl.png"/>
+        <Image x:Name="image2l" HorizontalAlignment="Left" Height="78" Margin="425,180,0,0" VerticalAlignment="Top" Width="61" Source="Resources/paperl.png"/>
+        <Image x:Name="image3l" HorizontalAlignment="Left" Height="76" Margin="425,258,0,0" VerticalAlignment="Top" Width="61" Source="Resources/scissorsl.png"/>
+        <Image x:Name="image4l" HorizontalAlignment="Left" Height="78" Margin="425,334,0,0" VerticalAlignment="Top" Width="61" Source="Resources/lizardl.png"/>
+        <Image x:Name="image5l" HorizontalAlignment="Left" Height="78" Margin="425,412,0,0" VerticalAlignment="Top" Width="61" Source="Resources/spockl.png"/>
+        <Label x:Name="label" Content="Player 1" HorizontalAlignment="Left" Margin="16,489,0,0" VerticalAlignment="Top" Width="60"/>
+        <Label x:Name="label1" Content="Player 2" HorizontalAlignment="Left" Height="34" Margin="430,490,0,0" VerticalAlignment="Top" Width="66"/>
     </Grid>
 </Window>

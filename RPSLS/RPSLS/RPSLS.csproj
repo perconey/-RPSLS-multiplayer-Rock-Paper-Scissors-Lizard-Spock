@@ -106,5 +106,17 @@
   <ItemGroup>
     <Resource Include="Resources\instruction.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\lizardl.png" />
+    <Resource Include="Resources\lizardr.png" />
+    <Resource Include="Resources\paperl.png" />
+    <Resource Include="Resources\paperr.png" />
+    <Resource Include="Resources\rockl.png" />
+    <Resource Include="Resources\rockr.png" />
+    <Resource Include="Resources\scissorsl.png" />
+    <Resource Include="Resources\scissorsr.png" />
+    <Resource Include="Resources\spockl.png" />
+    <Resource Include="Resources\spockr.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

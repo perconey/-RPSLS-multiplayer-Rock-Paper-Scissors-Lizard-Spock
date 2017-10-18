@@ -22,13 +22,6 @@ namespace RPSLS
     {
         public MainWindow()
         {
-            Image myImage3 = new Image();
-            BitmapImage bi3 = new BitmapImage();
-            bi3.BeginInit();
-            bi3.UriSource = new Uri("logo.png", UriKind.Relative);
-            bi3.EndInit();
-            myImage3.Stretch = Stretch.Fill;
-            myImage3.Source = bi3;
             InitializeComponent();
         }
 
@@ -37,6 +30,14 @@ namespace RPSLS
             var instructions = new Instructions();
             instructions.Show();
             instructions.Activate();
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.E)
+            {
+                MessageBox.Show(e.Key.ToString());
+            }
         }
     }
 }
