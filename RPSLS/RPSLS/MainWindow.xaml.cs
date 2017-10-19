@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RPSLS.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,10 +35,8 @@ namespace RPSLS
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.E)
-            {
-                MessageBox.Show(e.Key.ToString());
-            }
+            var round = new Round();
+            round.CheckKeyPresses(e);
         }
     }
 }

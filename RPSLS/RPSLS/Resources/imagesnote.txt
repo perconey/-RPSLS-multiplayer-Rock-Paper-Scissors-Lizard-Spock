@@ -2,8 +2,8 @@ Images in folder Resources are with following suffixes:
 r - for images on the right side of the gui (player 2)
 l -for images on the left side of the gui (player 1)
 
-R  1      R  =
-P  2      P  -
-Sc 3      Sc 0
-L  e      L  o
-Sp c      Sp ,
+R  1      R  0
+P  2      P  9
+Sc 3      Sc i
+L  e      L  j
+Sp c      Sp m
