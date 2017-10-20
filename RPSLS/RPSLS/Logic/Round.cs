@@ -13,8 +13,31 @@ namespace RPSLS.Logic
         private char _choice1;
         private char _choice2;
 
-        public char Choice1 { get => _choice1; set => _choice1 = value; }
-        public char Choice2 { get => _choice2; set => _choice2 = value; }
+        public char Choice1
+        {
+            get => _choice1;
+            set
+            {
+                _choice1 = value;
+                if(_choice2 != ' ')
+                {
+                    MessageBox.Show("Both chosen");
+
+                }
+            }
+        }
+        public char Choice2
+        {
+            get => _choice2;
+            set
+            {
+                _choice2 = value;
+                if (_choice2 != ' ')
+                {
+                    MessageBox.Show("Both chosen");
+                }
+            }
+        }
 
         public Round()
         {
@@ -55,7 +78,7 @@ namespace RPSLS.Logic
             ////////////////////////////////////////////////
             if (e.Key == Key.D0)
             {
-                Choice1 = '0';
+                Choice2 = '0';
             }
             if (e.Key == Key.D9)
             {
