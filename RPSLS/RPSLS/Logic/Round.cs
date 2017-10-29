@@ -12,6 +12,7 @@ namespace RPSLS.Logic
     {
         private char _choice1;
         private char _choice2;
+        private bool _firstPlayerWon;
 
         public char Choice1
         {
@@ -26,18 +27,15 @@ namespace RPSLS.Logic
                 }
             }
         }
+
         public char Choice2
         {
             get => _choice2;
-            set
-            {
-                _choice2 = value;
-                if (_choice2 != ' ')
-                {
-                    MessageBox.Show("Both chosen");
-                }
-            }
+            set => _choice2 = value;
+            
         }
+
+        public bool FirstPlayerWon1 { get => _firstPlayerWon; set => _firstPlayerWon = value; }
 
         public Round()
         {
@@ -53,6 +51,28 @@ namespace RPSLS.Logic
         Sp c     || Sp m   
         PLAYER 1 || PLAYER 2
         */
+
+        /* Comparing table
+         *  IF 1 - Rock
+         *  Wins to: Scissors, Lizard
+         *  Loses to: Paper, Spock
+         *  
+         *  IF 1 - Paper
+         *  Wins to: Rock, Spock
+         *  Loses to: Scissors, Lizard
+         *  
+         *  IF 1 - Scissors
+         *  Wins to: Paper, Lizard
+         *  Loses to: Spock, Rock
+         *  
+         *  IF 1 - Lizard
+         *  Wins to: Paper, Spock
+         *  Loses to: Rock, Scissors
+         *  
+         *  IF 1 - Spock
+         *  Wins to: Scissors, Rock
+         *  Loses to: Lizard, Paper
+         */
         public void CheckKeyPresses(KeyEventArgs e)
         {
             if (e.Key == Key.D1)
