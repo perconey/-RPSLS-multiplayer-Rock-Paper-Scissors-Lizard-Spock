@@ -10,37 +10,38 @@ namespace RPSLS.Logic
 {
     class Round
     {
-        private char _choice1;
-        private char _choice2;
+        private String _player1Choice;
+        private String _player2Choice;
         private bool _firstPlayerWon;
+        private bool _roundDrawn;
 
-        public char Choice1
+        public String Player1Choice
         {
-            get => _choice1;
+            get => _player1Choice;
             set
             {
-                _choice1 = value;
-                if(_choice2 != ' ')
-                {
-                    MessageBox.Show("Both chosen");
-
-                }
+                _player1Choice = value;
+                WhoWon();
             }
         }
 
-        public char Choice2
+        public String Player2Choice
         {
-            get => _choice2;
-            set => _choice2 = value;
-            
+            get => _player2Choice;
+            set
+            {
+                _player2Choice = value;
+                WhoWon();
+            }
         }
 
-        public bool FirstPlayerWon1 { get => _firstPlayerWon; set => _firstPlayerWon = value; }
+        public bool FirstPlayerWon { get => _firstPlayerWon; set => _firstPlayerWon = value; }
+        public bool RoundDrawn { get => _roundDrawn; set => _roundDrawn = value; }
 
         public Round()
         {
-            Choice1 = ' ';
-            Choice2 = ' ';
+            Player1Choice = "nothing";
+            Player2Choice = "nothing";
         }
 
         /*
@@ -73,51 +74,131 @@ namespace RPSLS.Logic
          *  Wins to: Scissors, Rock
          *  Loses to: Lizard, Paper
          */
+
+        public void WhoWon()
+        {
+            if (Player2Choice != "nothing" && Player1Choice != "nothing")
+            {
+
+                switch (Player1Choice)
+                {
+                    case "Rock":
+                        if (Player2Choice == "Rock")
+                            FirstPlayerWon = false;
+                        if (Player2Choice == "Paper")
+                            FirstPlayerWon = false;
+                        if (Player2Choice == "Scissors")
+                            FirstPlayerWon = true;
+                        if (Player2Choice == "Lizard")
+                            FirstPlayerWon = true;
+                        if (Player2Choice == "Spock")
+                            FirstPlayerWon = false;
+                        break;
+
+                    case "Paper":
+                        if (Player2Choice == "Rock")
+                            FirstPlayerWon = true;
+                        if (Player2Choice == "Paper")
+                            FirstPlayerWon = false;
+                        if (Player2Choice == "Scissors")
+                            FirstPlayerWon = false;
+                        if (Player2Choice == "Lizard")
+                            FirstPlayerWon = false;
+                        if (Player2Choice == "Spock")
+                            FirstPlayerWon = true;
+
+                        break;
+
+                    case "Scissors":
+                        if (Player2Choice == "Rock")
+                            FirstPlayerWon = false;
+                        if (Player2Choice == "Paper")
+                            FirstPlayerWon = true;
+                        if (Player2Choice == "Scissors")
+                            FirstPlayerWon = false;
+                        if (Player2Choice == "Lizard")
+                            FirstPlayerWon = true;
+                        if (Player2Choice == "Spock")
+                            FirstPlayerWon = false;
+                        break;
+
+                    case "Lizard":
+                        if (Player2Choice == "Rock")
+                            FirstPlayerWon = false;
+                        if (Player2Choice == "Paper")
+                            FirstPlayerWon = true;
+                        if (Player2Choice == "Scissors")
+                            FirstPlayerWon = false;
+                        if (Player2Choice == "Lizard")
+                            FirstPlayerWon = false;
+                        if (Player2Choice == "Spock")
+                            FirstPlayerWon = true;
+                        break;
+
+                    case "Spock":
+                        if (Player2Choice == "Rock")
+                            FirstPlayerWon = true;
+                        if (Player2Choice == "Paper")
+                            FirstPlayerWon = false;
+                        if (Player2Choice == "Scissors")
+                            FirstPlayerWon = true;
+                        if (Player2Choice == "Lizard")
+                            FirstPlayerWon = false;
+                        if (Player2Choice == "Spock")
+                            FirstPlayerWon = false;
+                        break;
+                }
+
+            }
+
+        }
         public void CheckKeyPresses(KeyEventArgs e)
         {
             if (e.Key == Key.D1)
             {
-                Choice1 = '1';
+                Player1Choice = "Rock";
             }
             if (e.Key == Key.D2)
             {
-                Choice1 = '2';
+                Player1Choice = "Paper";
             }
             if (e.Key == Key.D3)
             {
-                Choice1 = '3';
+                Player1Choice = "Sciccors";
             }
             if (e.Key == Key.E)
             {
-                Choice1 = 'e';
+                Player1Choice = "Lizard";
             }
             if (e.Key == Key.C)
             {
-                Choice1 = 'c';
+                Player1Choice = "Spock";
             }
+
             ////////////////////////////////////////////////
             if (e.Key == Key.D0)
             {
-                Choice2 = '0';
+                Player2Choice = "Rock";
             }
             if (e.Key == Key.D9)
             {
-                Choice2 = '9';
+                Player2Choice = "Paper";
             }
             if (e.Key == Key.I)
             {
-                Choice2 = 'i';
+                Player2Choice = "Scissors";
             }
             if (e.Key == Key.J)
             {
-                Choice2 = 'j';
+                Player2Choice = "Lizard";
             }
             if (e.Key == Key.M)
             {
-                Choice2 = 'm';
+                Player2Choice = "Spock";
             }
         }
 
+        
 
     }
 }

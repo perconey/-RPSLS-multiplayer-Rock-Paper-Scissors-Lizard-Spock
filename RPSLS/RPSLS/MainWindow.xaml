@@ -21,8 +21,8 @@
         <Image x:Name="image3l" HorizontalAlignment="Left" Height="76" Margin="425,258,0,0" VerticalAlignment="Top" Width="61" Source="Resources/scissorsl.png"/>
         <Image x:Name="image4l" HorizontalAlignment="Left" Height="78" Margin="425,334,0,0" VerticalAlignment="Top" Width="61" Source="Resources/lizardl.png"/>
         <Image x:Name="image5l" HorizontalAlignment="Left" Height="78" Margin="425,412,0,0" VerticalAlignment="Top" Width="61" Source="Resources/spockl.png"/>
-        <Label x:Name="label" Content="Player 1" HorizontalAlignment="Left" Margin="16,489,0,0" VerticalAlignment="Top" Width="60"/>
-        <Label x:Name="label1" Content="Player 2" HorizontalAlignment="Left" Height="34" Margin="430,490,0,0" VerticalAlignment="Top" Width="66"/>
+        <Label x:Name="label" Content="Player 2" HorizontalAlignment="Left" Margin="11,489,0,0" VerticalAlignment="Top" Width="60" FontFamily="Microsoft YaHei" FontWeight="Bold"/>
+        <Label x:Name="label1" Content="Player 1" HorizontalAlignment="Left" Height="34" Margin="425,490,0,0" VerticalAlignment="Top" Width="66" FontWeight="Bold" FontFamily="Microsoft YaHei"/>
 
         <Image x:Name="leftDk" HorizontalAlignment="Left" Height="150" Margin="96,156,0,0" VerticalAlignment="Top" Width="150"/>
         <Image x:Name="rightDk" HorizontalAlignment="Left" Height="149" Margin="246,306,0,0" VerticalAlignment="Top" Width="150" DataContext=""/>

@@ -21,6 +21,10 @@ namespace RPSLS
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static Round round = new Round();
+
+        internal static Round Round { get => round; set => round = value; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,8 +39,7 @@ namespace RPSLS
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            var round = new Round();
-            round.CheckKeyPresses(e);
+            Round.CheckKeyPresses(e);
         }
     }
 }
