@@ -14,6 +14,7 @@ namespace RPSLS.Logic
         private String _player2Choice;
         private bool _firstPlayerWon;
         private bool _roundDrawn;
+        private bool _roundIsOver;
 
         public String Player1Choice
         {
@@ -35,13 +36,23 @@ namespace RPSLS.Logic
             }
         }
 
-        public bool FirstPlayerWon { get => _firstPlayerWon; set => _firstPlayerWon = value; }
+        public bool FirstPlayerWon
+        {
+            get => _firstPlayerWon;
+            set
+            {
+                _firstPlayerWon = value;
+            }
+        }
+
         public bool RoundDrawn { get => _roundDrawn; set => _roundDrawn = value; }
+        public bool RoundIsOver { get => _roundIsOver; set => _roundIsOver = value; }
 
         public Round()
         {
             Player1Choice = "nothing";
             Player2Choice = "nothing";
+            RoundDrawn = false;
         }
 
         /*
@@ -84,7 +95,10 @@ namespace RPSLS.Logic
                 {
                     case "Rock":
                         if (Player2Choice == "Rock")
+                        {
                             FirstPlayerWon = false;
+                            RoundDrawn = true;
+                        }
                         if (Player2Choice == "Paper")
                             FirstPlayerWon = false;
                         if (Player2Choice == "Scissors")
@@ -99,7 +113,10 @@ namespace RPSLS.Logic
                         if (Player2Choice == "Rock")
                             FirstPlayerWon = true;
                         if (Player2Choice == "Paper")
+                        {
                             FirstPlayerWon = false;
+                            RoundDrawn = true;
+                        }
                         if (Player2Choice == "Scissors")
                             FirstPlayerWon = false;
                         if (Player2Choice == "Lizard")
@@ -115,7 +132,10 @@ namespace RPSLS.Logic
                         if (Player2Choice == "Paper")
                             FirstPlayerWon = true;
                         if (Player2Choice == "Scissors")
+                        {
                             FirstPlayerWon = false;
+                            RoundDrawn = true;
+                        }
                         if (Player2Choice == "Lizard")
                             FirstPlayerWon = true;
                         if (Player2Choice == "Spock")
@@ -130,7 +150,10 @@ namespace RPSLS.Logic
                         if (Player2Choice == "Scissors")
                             FirstPlayerWon = false;
                         if (Player2Choice == "Lizard")
+                        {
                             FirstPlayerWon = false;
+                            RoundDrawn = true;
+                        }
                         if (Player2Choice == "Spock")
                             FirstPlayerWon = true;
                         break;
@@ -145,9 +168,13 @@ namespace RPSLS.Logic
                         if (Player2Choice == "Lizard")
                             FirstPlayerWon = false;
                         if (Player2Choice == "Spock")
+                        {
                             FirstPlayerWon = false;
+                            RoundDrawn = true;
+                        }
                         break;
                 }
+                RoundIsOver = true;
 
             }
 
@@ -198,6 +225,14 @@ namespace RPSLS.Logic
             }
         }
 
+        public void Reset()
+        {
+            Player1Choice = "nothing";
+            Player2Choice = "nothing";
+            FirstPlayerWon = false;
+            RoundDrawn = false;
+            RoundIsOver = false;
+        }
         
 
     }

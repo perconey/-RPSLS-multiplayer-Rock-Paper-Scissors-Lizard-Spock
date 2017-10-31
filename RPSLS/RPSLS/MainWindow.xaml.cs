@@ -40,6 +40,24 @@ namespace RPSLS
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             Round.CheckKeyPresses(e);
+            if(Round.RoundIsOver)
+            {
+                switch(Round.FirstPlayerWon)
+                {
+                    case true:
+                        player1Side.Source = new BitmapImage(new Uri("Resources/winner.png", UriKind.Relative));
+                        break;
+                    case false:
+                        if(Round.RoundDrawn)
+                        {
+                            draw.Source = new BitmapImage(new Uri("Resources/winner.png", UriKind.Relative));
+                            break;
+                        }
+                        player2Side.Source = new BitmapImage(new Uri("Resources/winner.png", UriKind.Relative));
+                        break;
+                }
+
+            }
         }
     }
 }
