@@ -8,8 +8,8 @@ namespace RPSLS.Logic
 {
     class Scoresystem
     {
-        private int _player1Points;
-        private int _player2Points;
+        private static int _player1Points;
+        private static int _player2Points;
 
         public int Player1Points { get => _player1Points; set => _player1Points = value; }
         public int Player2Points { get => _player2Points; set => _player2Points = value; }
@@ -19,5 +19,18 @@ namespace RPSLS.Logic
             Player1Points = 0;
             Player2Points = 0;    
         }
+
+        public void GivePoint(int playerNumber)
+        {
+            if(playerNumber == 1)
+            {
+                Player1Points++;
+            }
+            if(playerNumber == 2)
+            {
+                Player2Points++;
+            }
+        }
+
     }
 }
