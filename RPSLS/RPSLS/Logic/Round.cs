@@ -123,7 +123,6 @@ namespace RPSLS.Logic
                             FirstPlayerWon = false;
                         if (Player2Choice == "Spock")
                             FirstPlayerWon = true;
-
                         break;
 
                     case "Scissors":
@@ -191,7 +190,7 @@ namespace RPSLS.Logic
             }
             if (e.Key == Key.D3)
             {
-                Player1Choice = "Sciccors";
+                Player1Choice = "Scissors";
             }
             if (e.Key == Key.E)
             {

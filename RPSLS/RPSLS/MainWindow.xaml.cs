@@ -26,40 +26,18 @@ namespace RPSLS
         private static Scoresystem _score = new Scoresystem();
 
         internal static Round Round { get => _round; set => _round = value; }
-        internal static Scoresystem Score
-        {
-            get
-            {
-                return _score;
-            }
-            set
-            {
-                _score = value;
-            }
-        }
+        internal static Scoresystem Score { get => _score; set => _score = value; }
 
         enum Players : int
         {
             First = 1,Second = 2
         };
+
         public MainWindow()
         {
             InitializeComponent();
-
-            player1Points.SetBinding(ContentProperty, new Binding("player1Points"));
-            player2Points.SetBinding(ContentProperty, new Binding("player2Points"));
-
-            Binding b = new Binding("player1Points");
-            b.Mode = BindingMode.OneWay;
-            b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-
-            Binding b1 = new Binding("player2Points");
-            b.Mode = BindingMode.OneWay;
-            b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-
-            player1Points.SetBinding(Label.ContentProperty, b);
-            player2Points.SetBinding(Label.ContentProperty, b1);
-
+            player1Points.Content = Score.Player1Points.ToString();
+            player2Points.Content = Score.Player2Points.ToString();
             DataContext = this;
         }
 
@@ -72,24 +50,28 @@ namespace RPSLS
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            //Warning
-            e.Handled = true;
             Round.CheckKeyPresses(e);
             if(Round.RoundIsOver)
             {
                 switch(Round.FirstPlayerWon)
                 {
                     case true:
+                        player1Side.Visibility = Visibility.Visible;
                         player1Side.Source = new BitmapImage(new Uri("Resources/winner.png", UriKind.Relative));
                         Score.GivePoint((int)Players.First);
+                        player1Points.Content = Score.Player1Points.ToString();
                         break;
                     case false:
                         if(Round.RoundDrawn)
                         {
+                            draw.Visibility = Visibility.Visible;
                             draw.Source = new BitmapImage(new Uri("Resources/winner.png", UriKind.Relative));
-                            Score.GivePoint((int)Players.Second);
                             break;
                         }
+                        Score.GivePoint((int)Players.Second);
+                        player2Points.Content = Score.Player2Points.ToString();
+
+                        player2Side.Visibility = Visibility.Visible;
                         player2Side.Source = new BitmapImage(new Uri("Resources/winner.png", UriKind.Relative));
                         break;
                 }
@@ -105,6 +87,17 @@ namespace RPSLS
         public virtual void OnPropertyChanged(string name)
         {
             System.Threading.Interlocked.CompareExchange(ref PropertyChanged, null, null)?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        private void resetButton_Click(object sender, RoutedEventArgs e)
+        {
+            Round.Reset();
+            Score.Reset();
+            player1Side.Visibility = Visibility.Hidden;
+            player2Side.Visibility = Visibility.Hidden;
+            draw.Visibility = Visibility.Hidden;
+            player1Points.Content = Score.Player1Points.ToString();
+            player2Points.Content = Score.Player2Points.ToString();
         }
     }
 }
