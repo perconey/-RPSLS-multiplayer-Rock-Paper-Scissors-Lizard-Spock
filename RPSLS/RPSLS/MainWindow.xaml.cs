@@ -32,7 +32,6 @@ namespace RPSLS
             {
                 return _score;
             }
-
             set
             {
                 _score = value;
@@ -73,6 +72,8 @@ namespace RPSLS
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
+            //Warning
+            e.Handled = true;
             Round.CheckKeyPresses(e);
             if(Round.RoundIsOver)
             {
@@ -99,13 +100,11 @@ namespace RPSLS
 
         }
 
-        #region INotifyPropertyChanged Implementation
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnPropertyChanged(string name)
+        public virtual void OnPropertyChanged(string name)
         {
             System.Threading.Interlocked.CompareExchange(ref PropertyChanged, null, null)?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-        #endregion
     }
 }
