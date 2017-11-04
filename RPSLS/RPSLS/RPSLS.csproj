@@ -69,6 +69,7 @@
     <Compile Include="Instructions.xaml.cs">
       <DependentUpon>Instructions.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Logic\DelayedExecution.cs" />
     <Compile Include="Logic\Round.cs" />
     <Compile Include="Logic\Scoresystem.cs" />
     <Compile Include="MainWindow.xaml.cs">

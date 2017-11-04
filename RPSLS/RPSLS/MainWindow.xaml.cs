@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -48,6 +49,18 @@ namespace RPSLS
             instructions.Activate();
         }
 
+        private void resetFieldsAfterEndOfTurn()
+        {
+            Round.Player1Choice = "nothing";
+            Round.Player2Choice = "nothing";
+
+            Round.RoundDrawn = false;
+
+           player1Side.Visibility = Visibility.Hidden;
+           player2Side.Visibility = Visibility.Hidden;
+           draw.Visibility = Visibility.Hidden;
+        }
+
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             Round.CheckKeyPresses(e);
@@ -56,29 +69,42 @@ namespace RPSLS
                 switch(Round.FirstPlayerWon)
                 {
                     case true:
-                        player1Side.Visibility = Visibility.Visible;
-                        player1Side.Source = new BitmapImage(new Uri("Resources/winner.png", UriKind.Relative));
+                        //Give point to player and update GUI Point Counter
                         Score.GivePoint((int)Players.First);
                         player1Points.Content = Score.Player1Points.ToString();
+
+                        //Update GUI images
+                        player1Side.Visibility = Visibility.Visible;
+                        player1Side.Source = new BitmapImage(new Uri("Resources/winner.png", UriKind.Relative));
+
                         break;
+
                     case false:
+                        //(round result)Draw check
                         if(Round.RoundDrawn)
                         {
                             draw.Visibility = Visibility.Visible;
                             draw.Source = new BitmapImage(new Uri("Resources/winner.png", UriKind.Relative));
                             break;
                         }
+                        //Give point to player and update GUI Point Counter
                         Score.GivePoint((int)Players.Second);
                         player2Points.Content = Score.Player2Points.ToString();
 
+                        //Update GUI images
                         player2Side.Visibility = Visibility.Visible;
                         player2Side.Source = new BitmapImage(new Uri("Resources/winner.png", UriKind.Relative));
                         break;
                 }
 
+                DelayedExecution.ExecuteWithDelay(new Action(delegate { resetFieldsAfterEndOfTurn(); }), TimeSpan.FromSeconds(1.2));
+
+                Round.RoundIsOver = false;
             }
-            MessageBox.Show($"First player score {Score.Player1Points}\n" +
-                $"Second player score {Score.Player2Points}");
+            /*Debug point_counter/gui compare*/
+
+            //MessageBox.Show($"First player score {Score.Player1Points}\n" +
+            //    $"Second player score {Score.Player2Points}");
 
         }
 
@@ -98,6 +124,8 @@ namespace RPSLS
             draw.Visibility = Visibility.Hidden;
             player1Points.Content = Score.Player1Points.ToString();
             player2Points.Content = Score.Player2Points.ToString();
+            Round.RoundIsOver = false;
         }
+
     }
 }

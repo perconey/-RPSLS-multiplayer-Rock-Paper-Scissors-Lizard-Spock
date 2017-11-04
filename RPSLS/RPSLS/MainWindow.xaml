@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RPSLS"
         mc:Ignorable="d"
-        Title="RPSLS" Height="554" Width="517" Background="#FFF9EFEF" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" KeyDown="Window_KeyDown">
+        Title="RPSLS" Height="554" Width="527" Background="#FFF9EFEF" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" KeyDown="Window_KeyDown">
     <Grid>
         <Image x:Name="logo" Height="79" Margin="0,18,231,0" VerticalAlignment="Top" Source="Resources/logo.png"/>
         <Button x:Name="instructionsButton" Content="Instructions" HorizontalAlignment="Left" Height="66" Margin="280,18,0,0" VerticalAlignment="Top" Width="206" Click="instructionsButton_Click" FontFamily="Adobe Gothic Std B" FontSize="16"/>
