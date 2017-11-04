@@ -8,7 +8,7 @@
         Title="RPSLS" Height="554" Width="527" Background="#FFF9EFEF" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" KeyDown="Window_KeyDown">
     <Grid>
         <Image x:Name="logo" Height="79" Margin="0,18,231,0" VerticalAlignment="Top" Source="Resources/logo.png"/>
-        <Button x:Name="instructionsButton" Content="Instructions" HorizontalAlignment="Left" Height="66" Margin="280,18,0,0" VerticalAlignment="Top" Width="206" Click="instructionsButton_Click" FontFamily="Adobe Gothic Std B" FontSize="16"/>
+        <Button x:Name="instructionsButton" Content="Instructions" HorizontalAlignment="Left" Height="66" Margin="290,18,0,0" VerticalAlignment="Top" Width="206" Click="instructionsButton_Click" FontFamily="Adobe Gothic Std B" FontSize="16"/>
 
         <Image x:Name="image1r" HorizontalAlignment="Left" Height="78" Margin="440,103,0,0" VerticalAlignment="Top" Width="61" Source="Resources/rockr.png"/>
         <Image x:Name="image2r" HorizontalAlignment="Left" Height="78" Margin="440,181,0,0" VerticalAlignment="Top" Width="61" Source="Resources/paperr.png"/>
@@ -28,8 +28,8 @@
         <Image x:Name="player2Side" HorizontalAlignment="Left" Height="149" Margin="246,306,0,0" VerticalAlignment="Top" Width="150"/>
         <Image x:Name="draw" HorizontalAlignment="Left" Height="149" Margin="175,211,0,0" VerticalAlignment="Top" Width="150"/>
 
-        <Label x:Name="player1Points" HorizontalAlignment="Left" Height="24" Margin="76,482,0,0" VerticalAlignment="Top" Width="111" HorizontalContentAlignment="Center"/>
-        <Label x:Name="player2Points" HorizontalAlignment="Left" Height="24" Margin="324,482,0,0" VerticalAlignment="Top" Width="111" HorizontalContentAlignment="Center"/>
+        <Label x:Name="player1Points" HorizontalAlignment="Left" Height="70" Margin="76,439,0,0" VerticalAlignment="Top" Width="111" HorizontalContentAlignment="Center" FontSize="50"/>
+        <Label x:Name="player2Points" HorizontalAlignment="Left" Height="70" Margin="324,439,0,0" VerticalAlignment="Top" Width="111" HorizontalContentAlignment="Center" FontSize="50"/>
         <Label x:Name="label2" Content="Points" HorizontalAlignment="Left" Height="27" Margin="184,482,0,0" VerticalAlignment="Top" Width="144" HorizontalContentAlignment="Center"/>
         <Button x:Name="button" Content="Reset" HorizontalAlignment="Left" Height="25" Margin="208,460,0,0" VerticalAlignment="Top" Width="96" Background="{x:Null}" Click="resetButton_Click"/>
     </Grid>

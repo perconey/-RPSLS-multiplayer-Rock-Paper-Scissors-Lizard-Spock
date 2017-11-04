@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RPSLS"
         mc:Ignorable="d"
-        Title="Instructions" Height="297.554" Width="276.359">
+        Title="Instructions" Height="450" Width="450">
     <Grid>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="269" VerticalAlignment="Top" Width="296" Source="Resources/Instruction.png" Margin="0,-2,-28,0"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="445" VerticalAlignment="Top" Width="498" Source="Resources/Instruction.png" Margin="0,-20,-56,-6"/>
 
     </Grid>
 </Window>
